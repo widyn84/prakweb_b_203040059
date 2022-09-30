@@ -19,7 +19,7 @@ $buku = query("SELECT * FROM buku");
         </div>
         <a href="insert.php" class="insertData" target="_blank"><i class="fa-solid fa-file-circle-plus"></i></a>
         </div>
-        <h1 class = text-center>Daftar Buku</h1>
+        <h1 class = text-center>Daftar Buku KAKKOII BOOK</h1>
         <table class="table table-bordered border-warning">
             <tr class = text-center>
                 <th>No</th>
