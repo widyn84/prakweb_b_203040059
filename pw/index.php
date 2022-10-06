@@ -1,52 +1,60 @@
 <?php
 require 'functions.php';
-
 $buku = query("SELECT * FROM buku");
+
+// ketika tombol cari diklik
+if (isset($_POST['cari'])) {
+    $mahasiswa = cari($_POST['keyword']);
+}
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <title>KAKKOII BOOK</title>
+    <title>Kakkoii Book</title>
 </head>
 <body>
-    <div class="container">
-        <div class="insertDataDiv">
-            <a class="InsertData" href="insert.php?id=<?= $row['id']; ?>" target="_blank"><i class="fa-solid fa-gear">Insert</i></a>
-        </div>
-        <a href="insert.php" class="insertData" target="_blank"><i class="fa-solid fa-file-circle-plus"></i></a>
-        </div>
-        <h1 class = text-center>Daftar Buku KAKKOII BOOK</h1>
-        <table class="table table-bordered border-warning">
-            <tr class = text-center>
-                <th>No</th>
+    <div>
+        <h3>Daftar Buku</h3>
+
+        <a href="insert.php">Tambah Data Buku</a>
+        <br><br>
+
+        <form action="" method="post">
+            <input type="text" name="keyword" size="40" placeholder="Masukkan Keyword Pencarian" autocomplete="off" autofocus>
+            <button type="submit" name="cari">Cari</button>
+        </form>
+        <br>
+
+        <table border="1" cellpadding="10" cellspacing="0">
+            <tr>
+                <th>#</th>
                 <th>Gambar</th>
                 <th>Judul</th>
-                <th>Penulis</th>
-                <th>Peberbit</th>
-                <th>Tahun Terbit</th>
                 <th>Aksi</th>
             </tr>
-                <?php $i = 1; ?>
-                <?php foreach ($buku as $bk) : ?>
-                    <tr class = text-center>
-                        <td><?= $i ?></td>
-                        <td><img src="img/<?= $bk["gambar"]; ?>" width="80"></td>
-                        <td><?= $bk["judul"]; ?></td>
-                        <td><?= $bk["penulis"]; ?></td>
-                        <td><?= $bk["penerbit"]; ?></td>
-                        <td><?= $bk["tahun_terbit"]; ?></td>
-                        <td>
-                            <a class="updateData" href="update.php?id=<?= $row['id']; ?>" target="_blank"><i class="fa-solid fa-gear">Update</i></a>
-                            <a class="deleteData" href="delete.php?id=<?= $row['id']; ?>" onclick="return confirm('Are u Sure?');"><i class="fa-solid fa-trash-can">Delete</i></a>
-                        </td>                        
-                    </tr>
-                    <?php $i++; ?>
-                <?php endforeach; ?>
+
+            <?php if(empty($buku)) : ?>
+            <tr>
+                <td colspan="4"><p style="color: red; font-style: italic;">Data Buku tidak ditemukan</p></td>
+            </tr>
+            <?php endif; ?>
+
+            <?php $i = 1; 
+            foreach($buku as $bk) : ?>
+            <tr>
+                <td><?= $i++ ?></td>
+                <td><img src="img/<?= $bk['gambar']; ?>" width="60"></td>
+                <td><?= $bk['judul']; ?></td>
+                <td>
+                    <a href="detail.php?id=<?= $m['id']; ?>">Lihat Detail</a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
         </table>
     </div>
 </body>
