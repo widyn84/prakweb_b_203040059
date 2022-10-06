@@ -24,9 +24,6 @@ $bk = query("SELECT * FROM buku WHERE  id = $id");
 <body>
     <h3>Detail Buku</h3>
     <ul>
-        <?php
-        var_dump($bk)
-        ?>
         <li><img src="img/<?= $bk[0]['gambar']; ?>" width="250"></li>
         <li>Judul: <?= $bk[0]['judul']; ?></li>
         <li>Penulis: <?= $bk[0]['penulis']; ?></li>

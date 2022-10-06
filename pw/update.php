@@ -41,39 +41,39 @@ if(isset($_POST['ubah'])) {
 <body>
     <h3>Form Ubah Data Buku</h3>
     <form action="" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="id" value="<?= $bk['id']; ?>">
+        <input type="hidden" name="id" value="<?= $bk[0]['id']; ?>">
         <ul>
             <li>
              <label>
                 Judul:
-                <input type="text" name="judul" autofocus required value="<?= $bk['judul']; ?>">
+                <input type="text" name="judul" autofocus required value="<?= $bk[0]['judul']; ?>">
              </label>
             </li>
             <li>
             <label>
                 Penulis:
-                <input type="text" name="penulis" required value="<?= $bk['penulis']; ?>">
+                <input type="text" name="penulis" required value="<?= $bk[0]['penulis']; ?>">
              </label>            
             </li>
             <li>
             <label>
                 Penerbit:
-                <input type="text" name="penerbit" required value="<?= $bk['penerbit']; ?>">
+                <input type="text" name="penerbit" required value="<?= $bk[0]['penerbit']; ?>">
              </label>
             </li>
             <li>
             <label>
                 Tahun Terbit:
-                <input type="text" name="tahun_terbit" required value="<?= $bk['tahun_terbit']; ?>">
+                <input type="text" name="tahun_terbit" required value="<?= $bk[0]['tahun_terbit']; ?>">
              </label>
             </li>
             <li>
-            <input type="hidden" name="gambar_lama" value="<?= $bk['gambar']; ?>">
+            <input type="hidden" name="gambar_lama" value="<?= $bk[0]['gambar']; ?>">
             <label>
                 Gambar:
                 <input type="file" name="gambar" class="gambar" onchange="previewImage()">
              </label>
-                <img src="img/<?= $bk['gambar']; ?>" width="120" style="display: block" class="img-preview">
+                <img src="img/<?= $bk[0]['gambar']; ?>" width="120" style="display: block" class="img-preview">
             </li>
             <li>
                 <button type="submit" name="ubah">Ubah Data</button>
