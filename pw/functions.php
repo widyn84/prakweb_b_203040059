@@ -111,4 +111,18 @@ function ubah($data) {
   mysqli_query($conn, $query) or die (mysqli_error($conn));
   return mysqli_affected_rows($conn);
 }
+
+function hapus($id) {
+  $conn = koneksi();
+
+  // menghapus gambar di folder img
+  $bk = query("SELECT * FROM buku WHERE id = $id");
+  if ($bk['gambar'] != 'nophoto.jpg') {
+      unlink('img/' .$bk['gambar']);
+  }
+
+
+  mysqli_query($conn, "DELETE FROM buku WHERE id = $id") or die(mysqli_error($conn));
+  return mysqli_affected_rows($conn);
+}
 ?>
