@@ -64,5 +64,6 @@ if(isset($_POST['tambah'])) {
             <button type="submit" name="tambah">Tambah Data</button>
         </ul>
     </form>
+<script src="js/script.js"></script>
 </body>
 </html>

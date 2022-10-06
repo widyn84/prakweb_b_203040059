@@ -4,7 +4,7 @@ $buku = query("SELECT * FROM buku");
 
 // ketika tombol cari diklik
 if (isset($_POST['cari'])) {
-    $mahasiswa = cari($_POST['keyword']);
+    $buku = cari($_POST['keyword']);
 }
 ?>
 
@@ -51,7 +51,7 @@ if (isset($_POST['cari'])) {
                 <td><img src="img/<?= $bk['gambar']; ?>" width="60"></td>
                 <td><?= $bk['judul']; ?></td>
                 <td>
-                    <a href="detail.php?id=<?= $m['id']; ?>">Lihat Detail</a>
+                    <a href="detail.php?id=<?= $bk['id']; ?>">Lihat Detail</a>
                 </td>
             </tr>
             <?php endforeach; ?>
