@@ -24,12 +24,15 @@ $bk = query("SELECT * FROM buku WHERE  id = $id");
 <body>
     <h3>Detail Buku</h3>
     <ul>
-        <li><img src="img/<?= $bk['gambar']; ?>" width="250"></li>
-        <li>Judul: <?= $bk['judul']; ?></li>
-        <li>Penulis: <?= $bk['penulis']; ?></li>
-        <li>Penerbit: <?= $bk['penerbit']; ?></li>
-        <li>Tahun Terbit: <?= $bk['tahun_terbit']; ?></li>
-        <li><a href="update.php?id=<?= $bk['id']; ?>">Ubah</a> | <a href="delete.php?id=<?= $m['id']; ?>" onclick="return confirm('Apakah anda yakin?');">Hapus</a></li>
+        <?php
+        var_dump($bk)
+        ?>
+        <li><img src="img/<?= $bk[0]['gambar']; ?>" width="250"></li>
+        <li>Judul: <?= $bk[0]['judul']; ?></li>
+        <li>Penulis: <?= $bk[0]['penulis']; ?></li>
+        <li>Penerbit: <?= $bk[0]['penerbit']; ?></li>
+        <li>Tahun Terbit: <?= $bk[0]['tahun_terbit']; ?></li>
+        <li><a href="update.php?id=<?= $bk[0]['id']; ?>">Ubah</a> | <a href="delete.php?id=<?= $bk[0]['id']; ?>" onclick="return confirm('Apakah anda yakin?');">Hapus</a></li>
         <li><a href="index.php">Kembali ke Daftar Buku</a></li>
 
     </ul>

@@ -57,23 +57,23 @@ if(isset($_POST['ubah'])) {
             </li>
             <li>
             <label>
-                Email:
-                <input type="text" name="email" required value="<?= $m['email']; ?>">
+                Penerbit:
+                <input type="text" name="penerbit" required value="<?= $bk['penerbit']; ?>">
              </label>
             </li>
             <li>
             <label>
-                Jurusan:
-                <input type="text" name="jurusan" required value="<?= $m['jurusan']; ?>">
+                Tahun Terbit:
+                <input type="text" name="tahun_terbit" required value="<?= $bk['tahun_terbit']; ?>">
              </label>
             </li>
             <li>
-            <input type="hidden" name="gambar_lama" value="<?= $m['gambar']; ?>">
+            <input type="hidden" name="gambar_lama" value="<?= $bk['gambar']; ?>">
             <label>
                 Gambar:
                 <input type="file" name="gambar" class="gambar" onchange="previewImage()">
              </label>
-                <img src="img/<?= $m['gambar']; ?>" width="120" style="display: block" class="img-preview">
+                <img src="img/<?= $bk['gambar']; ?>" width="120" style="display: block" class="img-preview">
             </li>
             <li>
                 <button type="submit" name="ubah">Ubah Data</button>
